@@ -37,7 +37,7 @@ class RaspberryGPIOFrontend(pykka.ThreadingActor, core.CoreListener):
         for key in self.config:
             if key.startswith("bcm"):
                 pin = int(key.replace("bcm", ""))
-                logger.info(pin)
+                logger.info("pin is :" + pin)
                 settings = self.config[key]
                 if settings is None:
                     continue
@@ -49,8 +49,7 @@ class RaspberryGPIOFrontend(pykka.ThreadingActor, core.CoreListener):
                     edge = GPIO.RISING
 
                 GPIO.setup(
-                    #pin,
-                    12,
+                    pin,
                     GPIO.IN,
                     pull_up_down=pull)
 
