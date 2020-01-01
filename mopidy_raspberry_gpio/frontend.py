@@ -21,7 +21,7 @@ class RaspberryGPIOFrontend(pykka.ThreadingActor, core.CoreListener):
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
 
-        #stef - get key value for GPIO.setmode
+        #stef - get key value for GPIO.setmode - stef
         #pin_mode = self.config.ConfigValue("pin_mode")
         
         # Iterate through any bcmN pins in the config
