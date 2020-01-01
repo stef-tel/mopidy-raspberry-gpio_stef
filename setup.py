@@ -18,7 +18,7 @@ setup(
     license="Apache License, Version 2.0",
     author="Phil Howard",
     author_email="phil@pimoroni.com",
-    description="Mopidy extension for GPIO input on a Raspberry Pi",
+    description="Mopidy extension for GPIO input on a Raspberry Pi - revisited by stef to support GPIO BOARD mode",
     long_description=open("README.rst").read(),
     packages=find_packages(exclude=["tests", "tests.*"]),
     zip_safe=False,
