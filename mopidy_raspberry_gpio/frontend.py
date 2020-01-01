@@ -34,6 +34,7 @@ class RaspberryGPIOFrontend(pykka.ThreadingActor, core.CoreListener):
         
         # Iterate through any bcmN pins in the config
         # and set them up as inputs with edge detection
+        logger.info(self.config)
         for key in self.config:
             if key.startswith("bcm"):
                 pin = int(key.replace("bcm", ""))
