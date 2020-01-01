@@ -49,7 +49,8 @@ class RaspberryGPIOFrontend(pykka.ThreadingActor, core.CoreListener):
                     edge = GPIO.RISING
 
                 GPIO.setup(
-                    pin,
+                    #pin,
+                    12,
                     GPIO.IN,
                     pull_up_down=pull)
 
