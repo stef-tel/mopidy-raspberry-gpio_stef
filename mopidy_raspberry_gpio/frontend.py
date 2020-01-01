@@ -19,16 +19,17 @@ class RaspberryGPIOFrontend(pykka.ThreadingActor, core.CoreListener):
         self.pin_settings = {}
 
         GPIO.setwarnings(False)
-        GPIO.setmode(GPIO.BCM)
+        #GPIO.setmode(GPIO.BCM)
+        GPIO.setmode(GPIO.BOARD)
 
         #stef - get key value for GPIO.setmode
-        pin_mode = self.config["pin_mode"]
+        """ pin_mode = self.config["pin_mode"]
         if pin_mode == GPIO.BOARD :
             prefix = "pin"
             logger.info("Board mode detected")
         else :
             prefix = "bcm"
-            logger.info("Board mode detected")
+            logger.info("Board mode detected") """
 
         
         # Iterate through any bcmN pins in the config
