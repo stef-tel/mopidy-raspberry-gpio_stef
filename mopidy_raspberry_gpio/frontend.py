@@ -37,6 +37,7 @@ class RaspberryGPIOFrontend(pykka.ThreadingActor, core.CoreListener):
         for key in self.config:
             if key.startswith("bcm"):
                 pin = int(key.replace("bcm", ""))
+                logger.info(pin)
                 settings = self.config[key]
                 if settings is None:
                     continue
