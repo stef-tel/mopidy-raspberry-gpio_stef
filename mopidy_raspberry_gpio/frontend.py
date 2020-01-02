@@ -17,6 +17,7 @@ class RaspberryGPIOFrontend(pykka.ThreadingActor, core.CoreListener):
         self.core = core
         self.config = config["raspberry-gpio"]
         self.pin_settings = {}
+        self.LED = 7
 
         GPIO.setwarnings(False)
         #GPIO.setmode(GPIO.BCM)
@@ -31,6 +32,10 @@ class RaspberryGPIOFrontend(pykka.ThreadingActor, core.CoreListener):
             prefix = "bcm"
             logger.info("Board mode detected") """
 
+        #light up green led when started
+        if not GPIO.input(self.LED) :
+            GPIO.setup(self.LED, GPIO.OUT) #Activate GPIO control
+            GPIO.output(self.LED, GPIO.HIGH) #lighting LED
         
         # Iterate through any bcmN pins in the config
         # and set them up as inputs with edge detection
