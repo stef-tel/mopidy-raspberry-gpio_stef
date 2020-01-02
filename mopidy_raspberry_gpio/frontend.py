@@ -33,8 +33,8 @@ class RaspberryGPIOFrontend(pykka.ThreadingActor, core.CoreListener):
             logger.info("Board mode detected") """
 
         #light up green led when started
+        GPIO.setup(self.LED, GPIO.OUT) #Activate GPIO control
         if not GPIO.input(self.LED) :
-            GPIO.setup(self.LED, GPIO.OUT) #Activate GPIO control
             GPIO.output(self.LED, GPIO.HIGH) #lighting LED
         
         # Iterate through any bcmN pins in the config
